@@ -1,29 +1,46 @@
 # StudentSystem
 课程管理系统（JavaEE课程设计）
-##功能
+## 功能
   1.是学生登录该网站可以查看所有课程，所有博客，可以上交作业，写博客，可以更改自己的密码，也可以查看自己的课程和博客。
   2.是教师登录该网站可以查看到自己上的课程，自己的博客，也可以开课。
   3.是管理员登录该网站可以对该网站用户等进行管理。
-##数据存储
+## 数据存储
 Mysql
-###表结构
+### 表结构
 ADMIN(ANO，ANAME)
+
 BLOG(BID,BNAME,CONT,USERID)
+
 CLA (CLA)
+
 COMMENTS(COID,CONT,USERID,BID)
+
 COURSE(CNO,CNAME	,PROTABLE,CONT,OUTLINE,CLA,TNO)
+
 EVAL(EID,STARS,USERID,BID)
+
 HOMEWORK(HID,HNAME,GBOOK,CID)
+
 RLOE(RID,RNAME)
+
 SC(SNO,CNO,SCORE)
+
 STUDENT(SNO,SNAME)
+
 STUDENTHOMEWORK(STID,BOOK,SNO,HID)
+
 TAG(TID,TNAME)
+
 TAGSTAT(TID	,STAT)
+
 TBRELA(BID,TID,USERID)
+
 TEACHER(TNO,TNAME)
+
 USERROLE(USERID,RID)
+
 USERS(USERID,UNAME,PWD)
+
 表1 ADMIN表
 
 | ADMIN  |             |          |          |
@@ -200,6 +217,6 @@ USERS(USERID,UNAME,PWD)
 |  PWD   | VARCHAR(20) | NOT NULL |  密码  |
 
  
-##感谢
+## 感谢
 本项目是半年前的项目，有一部分使用了第三方库来实现，老师也给予了我很多帮助，谢谢谢谢。
  
