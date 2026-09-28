@@ -1,0 +1,438 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "BookShop-Python",
+      "version": "0.1.0"
+    },
+    "properties": [
+      {
+        "name": "target",
+        "value": "Windows x64 / CPython 3.11.3"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "blinker",
+      "version": "1.6.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c3d739772abb7bc2860abf5f2ec284223d9ad5c76da018234f6f50d6f31ab1f0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "cffi",
+      "version": "2.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "66f011380d0e49ed280c789fbd08ff0d40968ee7b665575489afa95c98196ab5"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "click",
+      "version": "8.3.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "colorama",
+      "version": "0.4.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "Flask",
+      "version": "2.3.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "77fd4e1249d8c9923de34907236b747ced06e5467ecac1a7bb7115ae0e9670b0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "gevent",
+      "version": "24.2.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1dffb395e500613e0452b9503153f8f7ba587c67dd4a85fc7cd7aa7430cb02cc"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "greenlet",
+      "version": "3.0.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1ea188d4f49089fc6fb283845ab18a2518d279c7cd9da1065d7a84e991748728"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "itsdangerous",
+      "version": "2.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2c2349112351b88699d8d4b6b075022c0808887cb7ad10069318a8b0bc88db44"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "Jinja2",
+      "version": "3.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "MarkupSafe",
+      "version": "2.1.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "134da1eca9ec0ae528110ccc9e48041e0828d79f24121a1a146161103c76e686"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "pycparser",
+      "version": "2.21",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "setuptools",
+      "version": "65.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f62ea9da9ed6289bfe868cd6845968a2c854d1427f8548d52cae02a42b4f0356"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "Werkzeug",
+      "version": "2.3.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "935539fa1413afbb9195b24880778422ed620c0fc09670945185cce4d91a8890"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "zope.event",
+      "version": "5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2832e95014f4db26c47a13fdaef84cef2f4df37e66b59d8f1f4a8f319a632c26"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ZPL-2.1"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "zope.interface",
+      "version": "6.4.post2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e2fb8e8158306567a3a9a41670c1ff99d0567d7fc96fa93b7abf8b519a46b250"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ZPL-2.1"
+          }
+        }
+      ],
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "Pillow",
+      "version": "9.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cfa4561277f677ecf651e2b22dc43e8f5368b74a25a8f7d1d4a3a243e573f2d4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "HPND"
+          }
+        }
+      ],
+      "scope": "optional"
+    }
+  ],
+  "packages": [
+    {
+      "name": "blinker",
+      "version": "1.6.2",
+      "sha256": "c3d739772abb7bc2860abf5f2ec284223d9ad5c76da018234f6f50d6f31ab1f0",
+      "license": "MIT",
+      "scope": "runtime"
+    },
+    {
+      "name": "cffi",
+      "version": "2.0.0",
+      "sha256": "66f011380d0e49ed280c789fbd08ff0d40968ee7b665575489afa95c98196ab5",
+      "license": "MIT",
+      "scope": "runtime"
+    },
+    {
+      "name": "click",
+      "version": "8.3.1",
+      "sha256": "981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "Flask",
+      "version": "2.3.2",
+      "sha256": "77fd4e1249d8c9923de34907236b747ced06e5467ecac1a7bb7115ae0e9670b0",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "gevent",
+      "version": "24.2.1",
+      "sha256": "1dffb395e500613e0452b9503153f8f7ba587c67dd4a85fc7cd7aa7430cb02cc",
+      "license": "MIT",
+      "scope": "runtime"
+    },
+    {
+      "name": "greenlet",
+      "version": "3.0.3",
+      "sha256": "1ea188d4f49089fc6fb283845ab18a2518d279c7cd9da1065d7a84e991748728",
+      "license": "MIT",
+      "scope": "runtime"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.1.2",
+      "sha256": "2c2349112351b88699d8d4b6b075022c0808887cb7ad10069318a8b0bc88db44",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.2",
+      "sha256": "6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "2.1.3",
+      "sha256": "134da1eca9ec0ae528110ccc9e48041e0828d79f24121a1a146161103c76e686",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "pycparser",
+      "version": "2.21",
+      "sha256": "8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "setuptools",
+      "version": "65.5.0",
+      "sha256": "f62ea9da9ed6289bfe868cd6845968a2c854d1427f8548d52cae02a42b4f0356",
+      "license": "MIT",
+      "scope": "runtime"
+    },
+    {
+      "name": "Werkzeug",
+      "version": "2.3.6",
+      "sha256": "935539fa1413afbb9195b24880778422ed620c0fc09670945185cce4d91a8890",
+      "license": "BSD-3-Clause",
+      "scope": "runtime"
+    },
+    {
+      "name": "zope.event",
+      "version": "5.0",
+      "sha256": "2832e95014f4db26c47a13fdaef84cef2f4df37e66b59d8f1f4a8f319a632c26",
+      "license": "ZPL-2.1",
+      "scope": "runtime"
+    },
+    {
+      "name": "zope.interface",
+      "version": "6.4.post2",
+      "sha256": "e2fb8e8158306567a3a9a41670c1ff99d0567d7fc96fa93b7abf8b519a46b250",
+      "license": "ZPL-2.1",
+      "scope": "runtime"
+    },
+    {
+      "name": "Pillow",
+      "version": "9.5.0",
+      "sha256": "cfa4561277f677ecf651e2b22dc43e8f5368b74a25a8f7d1d4a3a243e573f2d4",
+      "license": "HPND",
+      "scope": "test"
+    }
+  ]
+}
