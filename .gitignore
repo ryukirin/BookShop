@@ -21,3 +21,28 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# BookShop Flask 迁移版（DEC-022）
+.venv/
+.venv-check/
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+*.pyc
+.pytest_cache/
+reports/
+bookshop-data/
+*.db-journal
+bookshop-config.ps1
+
+# 本机工具与编辑器配置（不入库）
+.claude/
+CLAUDE.md
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# 旧 Eclipse 工程的编译输出
+BookShop/build/

@@ -1,0 +1,11 @@
+{% extends "layout_personal.html" %}
+{% block main %}
+<h1 class="page-header">个人信息</h1>
+<div class="row placeholders">
+<div class="col-6 col-sm-3 placeholder">
+<img src="../img/default.jpg" width="130" height="130" class="img-fluid" alt="默认头像">
+<h4>{{ uname }}</h4>
+<span class="text-muted">{{ role_label }}</span>
+</div>
+</div>
+{% endblock %}

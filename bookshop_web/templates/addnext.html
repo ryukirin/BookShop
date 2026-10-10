@@ -1,0 +1,27 @@
+{% extends "layout_admin.html" %}
+{% block search %}{% include "_dead_search.html" %}{% endblock %}
+{% block content %}
+<h1 class="page-header">书籍管理</h1>
+<div class="table-responsive">
+<form class="form-signin" name="addbook" method="post" enctype="multipart/form-data" action="admin.action?opttype=addBooksimg">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<h4>上传书籍图：</h4>
+<img id="preview" class="img-thumbnail mb-2" alt="" style="max-width: 200px;">
+<input type="file" name="file" class="form-control mb-2" accept="image/png,image/jpeg" onchange="imgPreview(this)">
+<button type="submit" class="btn btn-success">提交</button>
+</form>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function imgPreview(fileDom) {
+  var file = fileDom.files[0];
+  if (!file) { return; }
+  if (!window.FileReader) { alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！"); return; }
+  if (!/^image\//.test(file.type)) { alert("请选择图片！"); return; }
+  var reader = new FileReader();
+  reader.onload = function (e) { document.getElementById("preview").src = e.target.result; };
+  reader.readAsDataURL(file);
+}
+</script>
+{% endblock %}

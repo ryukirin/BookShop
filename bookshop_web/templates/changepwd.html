@@ -1,0 +1,16 @@
+{% extends "layout_personal.html" %}
+{% block main %}
+<h1 class="page-header">修改密码</h1>
+<div class="table-responsive">
+<form class="form-signin" name="changepwd" method="post" action="my.action?opttype=updatePwd">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="oldpwd" class="visually-hidden">旧密码</label>
+<input type="password" id="oldpwd" name="oldpwd" class="form-control mb-2" placeholder="旧密码" required autofocus>
+<label for="newpwd" class="visually-hidden">新密码</label>
+<input type="password" id="newpwd" name="newpwd" class="form-control mb-2" placeholder="新密码" required>
+<label for="anewpwd" class="visually-hidden">确认密码</label>
+<input type="password" id="anewpwd" name="anewpwd" class="form-control mb-2" placeholder="确认密码" required>
+<button type="submit" class="btn btn-success">提交</button>
+</form>
+</div>
+{% endblock %}

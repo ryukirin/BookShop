@@ -1,0 +1,3 @@
+# 第三方发布文件按字节原样入库和检出，不做换行转换（VENDOR.md 的 sha512 校验，TEST-043）
+bookshop_web/static/bootstrap/** -text
+bookshop_web/static/bootstrap-icons/** -text

@@ -1,7 +1,20 @@
-# 示例仅含占位符；复制到仓库外并限制访问权限，切勿在本文件写真实秘密。
-# 使用 [Convert]::ToHexString([Security.Cryptography.RandomNumberGenerator]::GetBytes(32))
-# 在个人安全配置中生成全新的 32 字节随机密钥。
-$env:BOOKSHOP_DATABASE_PATH = '请替换为数据库绝对路径'
-$env:BOOKSHOP_UPLOAD_DIR = '请替换为上传目录绝对路径'
-$env:BOOKSHOP_SECRET_KEY = '请替换为64位十六进制随机密钥'
-$env:BOOKSHOP_LOG_PATH = '请替换为日志文件绝对路径'
+# BookShop configuration example (MIG-RULE-010).
+# Copy this file OUTSIDE the repository, replace the placeholder values, then dot-source it
+# before running scripts\start.ps1, for example:   . $HOME\bookshop-config.ps1
+# Never commit real secrets.
+
+# Data directory (database, covers, logs). Must exist and be writable; keep it outside the repository.
+$env:BOOKSHOP_DATA_DIR = Join-Path $HOME 'bookshop-data'
+
+# Session signing key: at least 32 random bytes. Generate one with:
+#   .venv\Scripts\python.exe -c "import secrets; print(secrets.token_hex(32))"
+# The service refuses to start while this placeholder is still here.
+$env:BOOKSHOP_SECRET_KEY = 'replace-with-64-hex-chars-from-python-secrets-token-hex-32'
+
+# Listen address and port. Keep 127.0.0.1 unless you really need LAN access (COMP-001).
+$env:BOOKSHOP_HOST = '127.0.0.1'
+$env:BOOKSHOP_PORT = '8080'
+
+# Only for the one-time "init-db"; set it in the console instead of this file if possible,
+# and remove it afterwards. It must not be 123456.
+# $env:BOOKSHOP_ADMIN_PASSWORD = '<choose an admin password>'

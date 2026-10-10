@@ -1,0 +1,6 @@
+{% if g.user %}
+<form class="d-flex ms-md-2" method="post" action="/BookShop/logout.action">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<button class="btn btn-outline-light btn-sm" type="submit"><i class="bi bi-box-arrow-right"></i> 退出</button>
+</form>
+{% endif %}

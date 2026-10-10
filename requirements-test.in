@@ -1,0 +1,5 @@
+# 测试依赖（DEC-014），以运行期锁为约束。重新生成：
+#   pip-compile --generate-hashes --allow-unsafe --strip-extras requirements-test.in
+-c requirements.txt
+-r requirements.in
+pytest==9.1.1

@@ -1,0 +1,51 @@
+{% extends "layout_admin.html" %}
+{% block search %}
+<form class="d-flex" action="admin.action" method="get">
+<input type="hidden" name="opttype" value="queryBooks">
+<input type="text" class="form-control me-2" name="bname" placeholder="查询...">
+<button class="btn btn-primary" type="submit">搜索</button>
+</form>
+{% endblock %}
+{% block content %}
+<h1 class="page-header">书籍管理</h1>
+<div class="table-responsive">
+<a href="add.jsp"><i class="bi bi-plus" aria-hidden="true"></i> 添加</a>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>书籍id</th>
+<th>书名</th>
+<th>简介</th>
+<th>出版社</th>
+<th>分类</th>
+<th>库存</th>
+<th>售价</th>
+<th>销量</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+{% for b in books %}
+<tr>
+<td>{{ b.bid }}</td>
+<td>{{ b.bname }}</td>
+<td class="con">{{ b.cont }}</td>
+<td>{{ b.publishers }}</td>
+<td>{{ b.tname }}</td>
+<td>{{ b.stock }}</td>
+<td>{{ fmt(b.price_cents) }}</td>
+<td>{{ b.num }}</td>
+<td>
+<a href="admin.action?opttype=showBooks&amp;bid={{ b.bid }}"><i class="bi bi-pencil" aria-hidden="true"></i>修改</a>
+<form class="d-inline" method="post" action="admin.action?opttype=deleteBooks">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<input type="hidden" name="bid" value="{{ b.bid }}">
+<button class="btn btn-link p-0" type="submit"><i class="bi bi-trash" aria-hidden="true"></i>删除</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

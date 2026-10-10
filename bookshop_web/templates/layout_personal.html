@@ -1,0 +1,20 @@
+{% extends "layout_customer.html" %}
+{% set active = "my" %}
+{% block title %}个人{% endblock %}
+{% block head %}<link href="/BookShop/css/dashboard.css" rel="stylesheet">{% endblock %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+<nav class="col-sm-3 col-md-2 sidebar">
+<ul class="nav flex-column">
+<li class="nav-item"><a class="nav-link{% if side == 'info' %} active{% endif %}" href="my.jsp">个人信息</a></li>
+<li class="nav-item"><a class="nav-link{% if side == 'pwd' %} active{% endif %}" href="changepwd.jsp">修改密码</a></li>
+<li class="nav-item"><a class="nav-link{% if side == 'orders' %} active{% endif %}" href="my.action?opttype=queryMyorder">我的订单</a></li>
+</ul>
+</nav>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+{% block main %}{% endblock %}
+</main>
+</div>
+</div>
+{% endblock %}

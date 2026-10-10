@@ -1,0 +1,27 @@
+{% extends "layout_admin.html" %}
+{% block search %}{% include "_dead_search.html" %}{% endblock %}
+{% block content %}
+<h1 class="page-header">书籍管理</h1>
+<div class="table-responsive">
+<form class="form-signin" name="addbook" method="post" action="admin.action?opttype=addBooks">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="bname" class="visually-hidden">书名</label>
+<input type="text" id="bname" name="bname" class="form-control mb-2" placeholder="书名" maxlength="100" required autofocus>
+<label for="publishers" class="visually-hidden">出版社</label>
+<input type="text" id="publishers" name="publishers" class="form-control mb-2" placeholder="出版社" maxlength="100" required>
+<label for="tid" class="visually-hidden">分类</label>
+<select id="tid" name="tid" class="form-select mb-2" required>
+{% for t in tags %}
+<option value="{{ t.tid }}">{{ t.tname }}</option>
+{% endfor %}
+</select>
+<label for="cont" class="visually-hidden">书籍简介</label>
+<input type="text" id="cont" name="cont" class="form-control mb-2" placeholder="书籍简介" maxlength="4000" required>
+<label for="stock" class="visually-hidden">库存</label>
+<input type="text" id="stock" name="stock" class="form-control mb-2" placeholder="库存" inputmode="numeric" required>
+<label for="price" class="visually-hidden">售价</label>
+<input type="text" id="price" name="price" class="form-control mb-2" placeholder="售价" inputmode="decimal" required>
+<button type="submit" class="btn btn-success">下一步</button>
+</form>
+</div>
+{% endblock %}

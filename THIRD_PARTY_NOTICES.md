@@ -1,26 +1,38 @@
-# 第三方组件与许可证
+# 第三方组件声明
 
-本清单对应 Windows x64／Python 3.11.3 固定 wheel；精确版本与 SHA-256 见 `requirements.lock`、`requirements-test.lock` 和 `sbom.json`。所有 Python 发行包的完整许可证原文随 wheel 安装到各自 `.dist-info`，TEST-020 核对这些原文实际存在；重分发不得剥离它们。法律许可原文保留第三方原语言，中文说明不替代原文。SQLite 属于 public domain；CPython 3.11.3 使用 PSF License 及历史许可。
+BookShop Flask 迁移版使用了下列第三方组件。版本以 `requirements.txt`、`requirements-test.txt` 和 `bookshop_web/static/VENDOR.md` 为准。再分发时，必须保留各组件的许可证原文。Python 包的许可证原文随 wheel 一起安装；前端库的许可证原文放在 `bookshop_web/static/*/LICENSE`。
 
-| 组件 | 版本 | 许可证 | 范围 |
-|---|---|---|---|
-| blinker | 1.6.2 | MIT | 运行时 |
-| cffi | 2.0.0 | MIT | 运行时 |
-| click | 8.3.1 | BSD-3-Clause | 运行时 |
-| colorama | 0.4.6 | BSD-3-Clause | 运行时 |
-| Flask | 2.3.2 | BSD-3-Clause | 运行时 |
-| gevent | 24.2.1 | MIT | 运行时 |
-| greenlet | 3.0.3 | MIT | 运行时 |
-| itsdangerous | 2.1.2 | BSD-3-Clause | 运行时 |
-| Jinja2 | 3.1.2 | BSD-3-Clause | 运行时 |
-| MarkupSafe | 2.1.3 | BSD-3-Clause | 运行时 |
-| pycparser | 2.21 | BSD-3-Clause | 运行时 |
-| setuptools | 65.5.0 | MIT | 运行时 |
-| Werkzeug | 2.3.6 | BSD-3-Clause | 运行时 |
-| zope.event | 5.0 | ZPL-2.1 | 运行时 |
-| zope.interface | 6.4.post2 | ZPL-2.1 | 运行时 |
-| Pillow | 9.5.0 | HPND | 仅测试 |
-| Bootstrap | 3.3.7 | MIT | 本地静态资源；后续 BATCH-004 核对完整许可文本 |
-| jQuery | 1.12.4 | MIT | BATCH-004 本地化时加入并核对许可头 |
+## 运行期（`requirements.txt`）
 
-许可核对来源：本机已安装包元数据与下载 wheel 的 `.dist-info`，及迁移规划包的目标依赖与许可矩阵。安装工具 pip 不属于应用运行／测试集合；SBOM 核对排除 pip，包含 zope 在运行时依赖的 setuptools。Bootstrap／jQuery 的目标端本地文件与许可证在 BATCH-004 接入时加入资源清单，不将尚未本地化的 jQuery 冒称为已交付资源。
+| 组件 | 版本 | 许可证 |
+|---|---|---|
+| Flask | 3.1.3 | BSD-3-Clause |
+| Werkzeug | 3.1.9 | BSD-3-Clause |
+| Jinja2 | 3.1.6 | BSD-3-Clause |
+| MarkupSafe | 3.0.4 | BSD-3-Clause |
+| itsdangerous | 2.2.0 | BSD-3-Clause |
+| click | 8.5.0 | BSD-3-Clause |
+| blinker | 1.9.0 | MIT |
+| waitress | 3.0.2 | ZPL-2.1 |
+
+## 前端（`bookshop_web/static/`）
+
+| 组件 | 版本 | 许可证 |
+|---|---|---|
+| Bootstrap | 5.3.8 | MIT |
+| Bootstrap Icons | 1.13.1 | MIT |
+
+## 仅测试用（`requirements-test.txt`）
+
+| 组件 | 版本 | 许可证 |
+|---|---|---|
+| pytest | 9.1.1 | MIT |
+| pluggy | 1.6.0 | MIT |
+| iniconfig | 2.3.1 | MIT |
+| packaging | 26.3 | Apache-2.0 或 BSD-2-Clause |
+| Pygments | 2.21.0 | BSD-2-Clause |
+| colorama | 0.4.6 | BSD-3-Clause |
+
+## 演示数据
+
+`bookshop_web/static/img/`（轮播图、默认头像）和演示书籍的封面，都来自旧系统仓库 `BookShop/WebContent/img/`。封面图版权属于各原出版方，这里只作演示数据使用（COMP-019）。

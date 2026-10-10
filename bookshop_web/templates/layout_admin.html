@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}网上书店管理站{% endblock %}
+{% block head %}<link href="/BookShop/css/dashboard.css" rel="stylesheet">{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container-fluid">
+<span class="navbar-brand">网上书店管理站</span>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航"><span class="navbar-toggler-icon"></span></button>
+<div id="navbar" class="collapse navbar-collapse">
+<div class="me-auto"></div>
+{% block search %}{% endblock %}
+{% include "_logout.html" %}
+</div>
+</div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+<nav class="col-sm-3 col-md-2 sidebar">
+<ul class="nav flex-column">
+<li class="nav-item"><a class="nav-link{% if side == 'members' %} active{% endif %}" href="admin.action?opttype=queryAllcustomers">会员管理</a></li>
+<li class="nav-item"><a class="nav-link{% if side == 'books' %} active{% endif %}" href="admin.action?opttype=queryAllbooks">书籍管理</a></li>
+<li class="nav-item"><a class="nav-link{% if side == 'money' %} active{% endif %}" href="admin.action?opttype=showAllmoney">账目统计</a></li>
+</ul>
+</nav>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+{% block content %}{% endblock %}
+</main>
+</div>
+</div>
+{% endblock %}

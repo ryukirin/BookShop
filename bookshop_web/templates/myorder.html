@@ -1,0 +1,24 @@
+{% extends "layout_personal.html" %}
+{% block main %}
+<h1 class="page-header">我的订单</h1>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>用户名</th>
+<th>书名</th>
+<th>订单金额</th>
+</tr>
+</thead>
+<tbody>
+{% for o in orders %}
+<tr>
+<td>{{ o.uname }}</td>
+<td>{{ o.bname }}</td>
+<td class="money">{{ fmt(o.unit_price_cents) }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

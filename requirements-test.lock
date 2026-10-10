@@ -1,2 +1,0 @@
--r requirements.lock
-Pillow==9.5.0 --hash=sha256:cfa4561277f677ecf651e2b22dc43e8f5368b74a25a8f7d1d4a3a243e573f2d4
