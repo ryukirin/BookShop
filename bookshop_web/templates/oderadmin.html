@@ -1,0 +1,32 @@
+{% extends "layout_admin.html" %}
+{% block content %}
+<h1 class="page-header">账目统计</h1>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>订单id</th>
+<th>用户名</th>
+<th>书名</th>
+<th>订单金额</th>
+</tr>
+</thead>
+<tbody>
+{% for o in orders %}
+<tr>
+<td>{{ o.oid }}</td>
+<td>{{ o.uname }}</td>
+<td>{{ o.bname }}</td>
+<td class="money">{{ fmt(o.unit_price_cents) }}</td>
+</tr>
+{% endfor %}
+<tr>
+<td>总金额：{{ fmt(total) }}元</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+{% endblock %}

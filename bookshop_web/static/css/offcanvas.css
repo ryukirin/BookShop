@@ -1,0 +1,18 @@
+/* 购买页和详情页（对应旧系统 css/offcanvas.css，按 Bootstrap 5 改写；
+   旧页面依赖的 offcanvas.js 本来就缺失（LEGACY-047），这里用响应式栅格代替） */
+body {
+  padding-top: 70px;
+}
+
+footer {
+  padding: 30px 0;
+}
+
+.book-card img {
+  object-fit: cover;
+}
+
+.book-cover {
+  max-width: 100%;
+  height: auto;
+}

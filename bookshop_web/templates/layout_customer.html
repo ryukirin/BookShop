@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container">
+<a class="navbar-brand" href="../index.jsp">网上书店</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航"><span class="navbar-toggler-icon"></span></button>
+<div id="navbar" class="collapse navbar-collapse">
+<ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../index.jsp">主页</a></li>
+<li class="nav-item"><a class="nav-link{% if active == 'buy' %} active{% endif %}" href="book.action?opttype=queryAllbook">购买</a></li>
+<li class="nav-item"><a class="nav-link{% if active == 'my' %} active{% endif %}" href="my.action?opttype=initMypage">个人</a></li>
+</ul>
+{% block search %}{% endblock %}
+{% include "_logout.html" %}
+</div>
+</div>
+</nav>
+{% block content %}{% endblock %}
+{% endblock %}

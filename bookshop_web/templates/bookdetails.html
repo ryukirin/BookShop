@@ -1,0 +1,29 @@
+{% extends "layout_customer.html" %}
+{% block title %}购买{% endblock %}
+{% block head %}<link href="/BookShop/css/offcanvas.css" rel="stylesheet">{% endblock %}
+{% block search %}{% include "_search_books.html" %}{% endblock %}
+{% block content %}
+<div class="container">
+{% if book %}
+<div class="row">
+<div class="col-12 col-md-6 mb-4">
+<img class="rounded book-cover" src="showpic.jsp?img={{ book.url|urlencode }}" alt="{{ book.bname }}" width="500" height="550">
+</div>
+<div class="col-12 col-md-6">
+<h4>书名：{{ book.bname }}</h4>
+<h4>出版商：{{ book.publishers }}</h4>
+<h4>价格：{{ fmt(book.price_cents) }}</h4>
+<h4>库存：{{ book.stock }}</h4>
+<h4>简介：{{ book.cont }}</h4>
+<h4>销量：{{ book.num }}</h4>
+<form method="post" action="book.action?opttype=buybook">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<input type="hidden" name="bid" value="{{ book.bid }}">
+<button class="btn btn-secondary" type="submit">立即购买 &raquo;</button>
+</form>
+</div>
+</div>
+{% endif %}
+<hr>
+</div>
+{% endblock %}
