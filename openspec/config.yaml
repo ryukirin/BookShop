@@ -1,0 +1,53 @@
+schema: code-migration
+
+context: |
+  Artifact path policy: every authored Markdown or review artifact must use
+  repository-relative paths with forward slashes. Never include drive letters,
+  workspace roots, user-profile directories, temporary directories, or other
+  machine-specific absolute filesystem paths. Tools may resolve absolute paths
+  internally, but those values must not be copied into artifacts. If a legacy
+  source file contains an absolute path, redact the value as
+  <redacted-local-path> and cite the repository-relative source file and symbol.
+  Web URLs and network endpoints are not filesystem paths and may be retained
+  when they are relevant evidence.
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+# Example:
+#   context: |
+#     Tech stack: TypeScript, React, Node.js
+#     We use conventional commits
+#     Domain: e-commerce platform
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always include a "Non-goals" section
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+rules:
+  test-plan:
+    - Mark whether each TEST runs in GitHub Actions.
+  tasks:
+    - Include tasks that make the GitHub Actions checks deterministic and green.
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
+operations:
+  apply:
+    guidance:
+      - Use the external migration planning pack and the change-local test-plan.md.
+      - Do not invoke or recommend OpenSpec archive; this workflow finishes without archiving the change.
