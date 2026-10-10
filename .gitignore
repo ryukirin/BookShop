@@ -31,8 +31,8 @@ hs_err_pid*
 __pycache__/
 *.pyc
 .pytest_cache/
-reports/
-bookshop-data/
+/reports/
+/bookshop-data/
 *.db-journal
 bookshop-config.ps1
 
