@@ -158,19 +158,9 @@
 - [x] 9.4 人工检查两端主要页面的 Bootstrap 5 视觉效果和 JS 交互（窄屏导航折叠、轮播、上传预览），把结论记进 PR 说明，交给用户确认（见 test-plan 中的例外表）。对应：BATCH-008、MIG-DEC-010、REQ-PLATFORM-011。验证：用户在 PR 中确认。
 
   完成记录：本机启动了演示实例（`init-db` 加 `start.ps1`），首页、登录页、封面和全部前端资源都返回 200。用户在浏览器中查看后没有提出问题，确认按通过处理。结论已写进 PR #1 的说明。
-- [ ] 9.5 按 design 的“Cutover and Rollback Design”切换：
-  1. 打上 `pre-cutover` 标签；
-  2. 在正式数据目录执行 `init-db`；
-  3. 运行 `start.ps1`；
-  4. 执行冒烟检查；
-  5. 停服、备份数据目录，再启动。
-
-  对应：BATCH-008。验证：test-plan 的“Post-Deployment Smoke Tests”全部通过，备份文件存在。
-
-  状态：不执行（用户决定，2026-10-11）。原因是没有正式运行环境，所以不打勾。将来需要上线时，按 `docs/运行说明.md` 第 7 节的“切换步骤”执行，执行后再勾选。同样的冒烟检查已经由 TEST-044 在临时数据目录上自动执行。
 - [x] 9.6 确认 BATCH-008 的退出标准：TEST-040、TEST-041、TEST-044、TEST-045 通过；全量测试在本机和 windows-latest 上都通过。确认回滚：停服，从备份恢复数据目录，必要时把代码检出到 `pre-cutover`。验证：`pytest` 全量，加上 Actions 的运行记录。
 
-  完成记录：TEST-040、TEST-041、TEST-044、TEST-045 在本机和 CI 上都通过（Actions 运行见 2.11）。“停服、从备份恢复”由 TEST-044 用真实的 start.ps1、stop.ps1 在 CI 中实际演练。代码回滚用 `git revert` 演练过（见 2.12）。9.5 不执行，所以没有 `pre-cutover` 标签；需要回退代码时用 `git revert`。
+  完成记录：TEST-040、TEST-041、TEST-044、TEST-045 在本机和 CI 上都通过（Actions 运行见 2.11）。“停服、从备份恢复”由 TEST-044 用真实的 start.ps1、stop.ps1 在 CI 中实际演练。代码回滚用 `git revert` 演练过（见 2.12）。正式切换已从任务中删除（用户决定，2026-10-11，没有正式运行环境），所以没有 `pre-cutover` 标签；需要回退代码时用 `git revert`。
 
 ## 10. Operational Readiness
 
