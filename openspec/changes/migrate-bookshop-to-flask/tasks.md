@@ -50,7 +50,7 @@
   对应：BATCH-001、REQ-PLATFORM-010、DEC-011。验证：`pytest tests/web/test_static_assets.py tests/static/test_repo_hygiene.py`（TEST-011、TEST-043）。
 - [x] 2.9 编写三套布局模板（会员端、管理端、登录注册页），以及 `index.html`、`login.html`、`register.html` 的静态部分。对应：BATCH-001、REQ-PLATFORM-001、REQ-PLATFORM-011、REQ-PLATFORM-002、DEC-012。验证：`pytest tests/web/test_page_structure.py -k "index or login or register" tests/web/test_encoding.py -k charset`（TEST-012、TEST-005）。
 - [x] 2.10 实现 `python -m bookshop_web serve`（waitress，`threads=4`，`max_request_body_size` 为 6 MiB）、Flask 的 `MAX_CONTENT_LENGTH`（5 MiB），以及 `scripts/start.ps1` 和 `scripts/stop.ps1`（用虚拟环境的解释器，设置 `PYTHONUTF8=1`，写 PID 文件）。对应：BATCH-001、REQ-PLATFORM-012、REQ-PLATFORM-014、DEC-013。验证：`pytest -m server tests/server/test_waitress_smoke.py tests/server/test_body_limit.py` 和 `pytest tests/web/test_body_limit.py`（TEST-003、TEST-014）。
-- [ ] 2.11 编写 `.github/workflows/bookshop-ci.yml`：
+- [x] 2.11 编写 `.github/workflows/bookshop-ci.yml`：
   - 在 `master` 的 push 和 pull_request 上触发；
   - windows-latest，`setup-python` 固定为 3.12.10，设置 `PYTHONUTF8=1`；
   - 安装时用 `--require-hashes`；
@@ -59,8 +59,10 @@
 
   对应：BATCH-001、DEC-015、MIG-RULE-013。验证（TEST-042）：`pytest tests/static/test_workflow.py`，并推送到分支，确认 Actions 中这次运行为绿色。
 
-  进度备注：workflow 已写好，`pytest tests/static/test_workflow.py` 通过；推送和确认 CI 按用户决定放到最后，届时再勾选。
-- [ ] 2.12 确认 BATCH-001 的退出标准：TEST-001～TEST-005、TEST-007、TEST-008、TEST-011～TEST-014、TEST-042、TEST-043 在本机和 windows-latest 上都通过。确认回滚方式：`git revert` 本批次提交可以把工作区恢复到批次开始前的状态（在临时分支上演练一次）。验证：`pytest` 全量，加上 Actions 的运行记录。
+  完成记录：PR #1 的 pull_request 运行（38061060622）和合并后 master 的 push 运行（38061284162）都是绿色：Python 3.12.10，610 passed，gate coverage 和 lint 都是 OK，junit 已作为 artifact 上传。
+- [x] 2.12 确认 BATCH-001 的退出标准：TEST-001～TEST-005、TEST-007、TEST-008、TEST-011～TEST-014、TEST-042、TEST-043 在本机和 windows-latest 上都通过。确认回滚方式：`git revert` 本批次提交可以把工作区恢复到批次开始前的状态（在临时分支上演练一次）。验证：`pytest` 全量，加上 Actions 的运行记录。
+
+  完成记录：全量 610 passed，本机和 windows-latest 一致（Actions 运行见 2.11）。回滚演练在临时 worktree 中进行：在 `a4ad13d` 上依次 revert `87b48ac`、`15234e9`、`992a9e0`，得到的树与实现开始前的 `0110f66` 完全一致。
 
 ## 3. BATCH-002: 数据层
 
@@ -162,11 +164,13 @@
   5. 停服、备份数据目录，再启动。
 
   对应：BATCH-008。验证：test-plan 的“Post-Deployment Smoke Tests”全部通过，备份文件存在。
-- [ ] 9.6 确认 BATCH-008 的退出标准：TEST-040、TEST-041、TEST-044、TEST-045 通过；全量测试在本机和 windows-latest 上都通过。确认回滚：停服，从备份恢复数据目录，必要时把代码检出到 `pre-cutover`。验证：`pytest` 全量，加上 Actions 的运行记录。
+- [x] 9.6 确认 BATCH-008 的退出标准：TEST-040、TEST-041、TEST-044、TEST-045 通过；全量测试在本机和 windows-latest 上都通过。确认回滚：停服，从备份恢复数据目录，必要时把代码检出到 `pre-cutover`。验证：`pytest` 全量，加上 Actions 的运行记录。
+
+  完成记录：TEST-040、TEST-041、TEST-044、TEST-045 在本机和 CI 上都通过（Actions 运行见 2.11）。“停服、从备份恢复”由 TEST-044 用真实的 start.ps1、stop.ps1 在 CI 中实际演练。代码回滚用 `git revert` 演练过（见 2.12）。`pre-cutover` 标签在 9.5 切换时创建。
 
 ## 10. Operational Readiness
 
-- [ ] 10.1 让 GitHub Actions 的检查稳定可复现：
+- [x] 10.1 让 GitHub Actions 的检查稳定可复现：
   - Python 固定为 3.12.10，依赖用哈希锁安装（TEST-001、TEST-042）；
   - 全局设置 `PYTHONUTF8=1`；
   - 测试不访问网络，前端资源都在本地；
@@ -176,6 +180,8 @@
   - 冻结时间的测试不依赖真实时钟。
 
   对同一个提交重跑 CI 两次，结果必须一致。对应：BATCH-001～BATCH-008、DEC-015、DEC-020。验证：`pytest tests/static/test_workflow.py`，并检查两次 Actions 运行都为绿色。
+
+  完成记录：对 master 的 `a4ad13d` 运行了两次（38061284162 第 1 次和第 2 次），两次都是绿色，结果一致：610 passed，gate coverage 和 lint 都是 OK。PR 上测试合并提交的运行（38061060622，树相同）结果也一样。
 - [x] 10.2 每个批次结束时，以及最终交付前，运行 gate 的 coverage 和 lint，并修复所有报告的问题。对应：BATCH-008、MIG-RULE-023。验证（TEST-045）：
   - `node openspec/schemas/code-migration/scripts/migration_gate.mjs coverage --root migration-plans/bookshop --change openspec/changes/migrate-bookshop-to-flask`
   - `node openspec/schemas/code-migration/scripts/migration_gate.mjs lint --root openspec/changes/migrate-bookshop-to-flask --defs migration-plans/bookshop "*.md" "**/*.md"`
